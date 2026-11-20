@@ -20,10 +20,7 @@ modules:
       name: Rank experts for an issue
       function: rankExperts
       actionVerb: GET
-      description: |
-        For one Jira issue, returns a ranked shortlist of the best people to review, own, or unblock it, with a one-line reason and evidence for each person.
-        Use it for "who should review PROJ-123", "who should own this issue", "who can unblock this", or "who is the best person for this work".
-        Leave issueKey empty to use the work item open on screen.
+      description: For one Jira issue, returns a ranked shortlist of the best people to review, own, or unblock it, with a reason and evidence for each person. Leave issueKey empty to use the open work item.
       inputs:
         issueKey:
           title: Work item key
@@ -39,9 +36,7 @@ modules:
       name: Find Confluence page authors for a topic
       function: findPageAuthors
       actionVerb: GET
-      description: |
-        Finds Confluence pages about a topic and lists the people who wrote or contributed to them, with a link to each page.
-        Use it for "who wrote about payments", "who knows about the onboarding guide", or "who authored the runbook for X".
+      description: Finds Confluence pages about a topic and lists the people who wrote them, with a link to each page.
       inputs:
         topic:
           title: Topic
@@ -52,9 +47,7 @@ modules:
       name: Find past resolvers of similar issues
       function: findPastResolvers
       actionVerb: GET
-      description: |
-        Finds Jira issues similar to a given issue (same project, component, or keywords) that are already done, and lists the people who resolved them, with counts.
-        Use it for "who fixed similar issues before" or "who has worked on issues like PROJ-123".
+      description: Finds done Jira issues similar to a given issue and lists the people who resolved them, with counts.
       inputs:
         issueKey:
           title: Work item key
@@ -70,9 +63,7 @@ modules:
       name: Find the owner of a component or service
       function: findComponentOwner
       actionVerb: GET
-      description: |
-        Finds who owns a Jira component or service: the component lead, and the people who most recently worked on issues in that component.
-        Use it for "who owns the payments component" or "who is responsible for the checkout service".
+      description: Finds who owns a Jira component or service: the component lead and people who recently worked on it.
       inputs:
         issueKey:
           title: Work item key
@@ -88,9 +79,7 @@ modules:
       name: Check a person's current workload
       function: getWorkload
       actionVerb: GET
-      description: |
-        Lists the open Jira work items assigned to a person, with status, so you can tell whether they have capacity to take on more work.
-        Use it for "how busy is Asha" or "does Marcus have capacity". Leave person empty for the user who is asking.
+      description: Lists the open Jira work items assigned to a person, with status, so you can tell if they have capacity.
       inputs:
         person:
           title: Person
@@ -100,7 +89,6 @@ modules:
   rovo:mcp:
     - key: knowwho-mcp
       name: KnowWho MCP
-      description: Exposes KnowWho expert-finding tools to MCP-compatible AI clients.
       tools:
         - knowwho-rank-experts
         - knowwho-page-authors
@@ -114,6 +102,7 @@ modules:
         function: panelResolver
       render: native
       title: KnowWho — who should work on this?
+      icon: https://raw.githubusercontent.com/yovmiar19/knowwho/main/icon.svg
   function:
     - key: rankExperts
       handler: index.rankExperts
@@ -149,4 +138,4 @@ permissions:
 app:
   runtime:
     name: nodejs22.x
-  id: ari:cloud:ecosystem::app/REPLACE-WITH-APP-ID
+  id: ari:cloud:ecosystem::app/46c3b9d5-ca3b-492c-9e7d-ebfd1dec1ad2
