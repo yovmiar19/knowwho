@@ -63,7 +63,7 @@ modules:
       name: Find the owner of a component or service
       function: findComponentOwner
       actionVerb: GET
-      description: Finds who owns a Jira component or service: the component lead and people who recently worked on it.
+      description: Finds who owns a Jira component or service, the component lead and people who recently worked on it.
       inputs:
         issueKey:
           title: Work item key
