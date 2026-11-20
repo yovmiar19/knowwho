@@ -1,0 +1,1 @@
+{"dependencies":{"@forge/api":"^8.5.0","@forge/bridge":"^7.3.0","@forge/react":"^12.5.0","react":"^18.2.0"},"description":"KnowWho — a Rovo agent that answers who should review, own, or unblock any Jira issue, using the Teamwork Graph.","license":"MIT","main":"src/index.js","name":"knowwho","private":true,"scripts":{"lint":"forge lint"},"type":"module","version":"1.0.0"}
